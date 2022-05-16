@@ -4,4 +4,4 @@ CG課題第1回
 [Sample1](Sample1.html)  
 CG課題第2回  
 ↓リンクはこちら  
-[Sample(2)](Sample(2).html)
+[Sample(2)](Kadai.Part2.html)
