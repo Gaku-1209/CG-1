@@ -7,4 +7,4 @@ CG課題第2回
 [Kadai.Part2](Kadai.Part2.html)  
 CG課題第3回  
 ↓リンクはこちら  
-[Kadai.Part3](Kadai.Part3.html)
+[Kadai.Part3](Kadai_Part3.html)
