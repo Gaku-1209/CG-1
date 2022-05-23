@@ -1,0 +1,166 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/three@0.137.4/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.137.4/examples/js/controls/OrbitControls.js"></script>
+  </head>
+<body>
+ <script>
+      // ページの読み込みを待つ
+      window.addEventListener('DOMContentLoaded', init);
+
+      function init() {
+        // サイズを指定
+        const width = 800
+        const height = 600;
+
+        // レンダラーを作成
+        var renderer = new THREE.WebGLRenderer();
+        document.body.appendChild(renderer.domElement);
+        renderer.setSize(width, height);
+
+        // シーンを作成
+        const scene = new THREE.Scene();
+
+        // カメラを作成
+        const camera = new THREE.PerspectiveCamera(45, width / height);
+        // カメラの初期座標を設定
+        camera.position.set(0, 0, 10);
+
+        // カメラコントローラーを作成
+        const controls = new THREE.OrbitControls(camera, document.body); 
+        
+        // 平行光源1
+        var directionalLight1 = new THREE.DirectionalLight(0xffffff);
+        directionalLight1.position.set(10, 10, 10);
+        // シーンに追加
+        scene.add(directionalLight1);
+        // 平行光源2
+        var directionalLight2 = new THREE.DirectionalLight(0x888888);
+        directionalLight2.position.set(-10, -10, 10);
+        // シーンに追加
+        scene.add(directionalLight2);
+
+        // 平面を作成
+        var planeGeometry = new THREE.PlaneGeometry(5,5,10,10); //縦、横、分割数、分割数
+        var planeMaterial = new THREE.MeshBasicMaterial({color: 0x203040});
+        var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+        plane.rotation.set( -Math.PI/2, 0, 0 );
+        plane.position.set(0,0,0);
+        scene.add(plane);
+
+        // いろいろなマテリアルの実験
+        var material = new THREE.MeshStandardMaterial({ color: 0x864a20, specular:0xffff00, shininess:4 });
+
+        //脚1
+        var leg_g=new THREE.CylinderGeometry(0.2, 0.2, 2, 4);
+        var leg=new THREE.Mesh(leg_g, material);
+        leg.position.set(2.3, 0, 0);
+
+        //脚2
+        var leg2_g=new THREE.CylinderGeometry(0.2, 0.2, 2, 4);
+        var leg2=new THREE.Mesh(leg2_g, material);
+        leg2.position.set(0, 0, 2.3);
+
+        //脚3
+        var leg3_g=new THREE.CylinderGeometry(0.2, 0.2, 2, 4);
+        var leg3=new THREE.Mesh(leg3_g, material);
+        leg3.position.set(0, 0, -2.3);
+
+        //脚4
+        var leg4_g=new THREE.CylinderGeometry(0.2, 0.2, 2, 4);
+        var leg4=new THREE.Mesh(leg4_g, material);
+        leg4.position.set(-2.3, 0, 0);
+
+        //板
+        var sit_g=new THREE.CylinderGeometry(3, 3, 0.2, 4);
+        var sit=new THREE.Mesh(sit_g, material);
+        sit.position.set(0, 1, 0);
+
+        //グラス
+        var cup_g=new THREE.CylinderGeometry(0.2, 0.1, 0.7, 32);
+        var material2=new THREE.MeshPhongMaterial({color: 0x9dcce0});
+        var cup=new THREE.Mesh(cup_g, material2);
+        cup.position.set(1.2, 1.35, -0.5);
+
+        //グラス2
+        var cup2_g=new THREE.CylinderGeometry(0.2, 0.1, 0.7, 32);
+        var cup2=new THREE.Mesh(cup2_g, material2);
+        cup2.position.set(-1.35, 1.35, 0.5);
+
+        //食器1
+        var dish_g=new THREE.CylinderGeometry(0.5, 0.3, 0.15, 32);
+        var material3=new THREE.MeshPhongMaterial({color: 0xffffff});
+        var dish=new THREE.Mesh(dish_g, material3);
+        dish.position.set(0.75, 1.15, 0.75);
+
+        //食器2
+        var dish2_g=new THREE.CylinderGeometry(0.5, 0.3, 0.15, 32);
+        var dish2=new THREE.Mesh(dish2_g, material3);
+        dish2.position.set(-0.75, 1.15, -0.75);
+
+        //トースト
+        var bread_g=new THREE.CylinderGeometry(0.4, 0.4, 0.1, 4);
+        var material4= new THREE.MeshStandardMaterial({ color: 0xc38743, specular:0xffff00, shininess:4 });
+        var bread=new THREE.Mesh(bread_g, material4);
+        bread.position.set(0.75, 1.27, 0.75);
+
+        //トースト2
+        var bread2_g=new THREE.CylinderGeometry(0.4, 0.4, 0.1, 4);
+        var bread2=new THREE.Mesh(bread2_g, material4);
+        bread2.position.set(-0.75, 1.27, -0.75);
+
+        //バター
+        var butter_g=new THREE.CylinderGeometry(0.1, 0.1, 0.05, 4);
+        var material5=new THREE.MeshStandardMaterial({ color: 0xffedb3, specular:0xffff00, shininess:4 });
+        butter=new THREE.Mesh(butter_g, material5);
+        butter.position.set(0.75, 1.32, 0.75);
+
+        //バター2
+        var butter2_g=new THREE.CylinderGeometry(0.1, 0.1, 0.05, 4);
+        butter2=new THREE.Mesh(butter2_g, material5);
+        butter2.position.set(-0.75, 1.32, -0.75);
+
+        const morning=new THREE.Group();
+        morning.add(sit);
+        morning.add(leg);
+        morning.add(leg2);
+        morning.add(leg3);
+        morning.add(leg4);
+        morning.add(cup);
+        morning.add(cup2);
+        morning.add(dish);
+        morning.add(dish2);
+        morning.add(bread);
+        morning.add(bread2);
+        morning.add(butter);
+        morning.add(butter2);
+        morning.position.set(0,0.75,0);
+        scene.add(morning);
+
+        //全体のオブジェクト
+        const all = new THREE.Group();
+        all.add(plane);//平面を追加
+        all.add(morning); 
+        all.position.set(0,0,0);//全体グループの原点の位置
+        scene.add(all); 
+
+        update();
+
+        // 毎フレーム時に実行されるループイベントです
+        function update() {
+          // レンダリング
+          renderer.render(scene, camera);
+          requestAnimationFrame(update);
+
+
+          morning.rotation.y += 0.005;;
+
+          // 全体を回転させる
+          //all.rotation.x += 0.01;
+          //all.rotation.y += 0.005;;
+        }
+      }
+    </script>
+</body>
+</html>
