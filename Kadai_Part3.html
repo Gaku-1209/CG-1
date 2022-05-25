@@ -86,14 +86,14 @@
         table.position.set(0, 1, 0);
 
         //グラス
-        var cup_g=new THREE.CylinderGeometry(0.2, 0.15, 0.7, 32);
+        var cup_g=new THREE.CylinderGeometry(0.2, 0.13, 0.7, 32);
         var material2=new THREE.MeshPhongMaterial({color: 0x9dcce0});
         var cup=new THREE.Mesh(cup_g, material2);
         cup.castShadow=true;
         cup.position.set(1.3, 1.35, -0.5);
 
         //グラス2
-        var cup2_g=new THREE.CylinderGeometry(0.2, 0.15, 0.7, 32);
+        var cup2_g=new THREE.CylinderGeometry(0.2, 0.13, 0.7, 32);
         var cup2=new THREE.Mesh(cup2_g, material2);
         cup2.castShadow=true;
         cup2.position.set(-1.3, 1.35, 0.5);
