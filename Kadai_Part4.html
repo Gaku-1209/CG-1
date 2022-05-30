@@ -51,7 +51,7 @@
         var textureLoader2=new THREE.TextureLoader();
         var texture2=textureLoader.load("face.jpg");
         var mat2=new THREE.MeshPhongMaterial();
-        mat2.map=texture;
+        mat2.map=texture2;
 
 
         // バンプマップ読み込み
@@ -67,6 +67,7 @@
 
         var geometry2=new THREE.SphereGeometry(1, 32, 32);
         var sphere=new THREE.Mesh(geometry2, mat2);
+        sphere.position.set(2, 0, 0);
         scene.add(sphere);
 
         update();
