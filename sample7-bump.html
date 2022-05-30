@@ -66,6 +66,11 @@
         box.position.set(0,0,0); //位置を指定
         scene.add(box);   // シーンに追加
 
+        var geometry2=new THREE.CylinderGeometry(0.5, 0.5, 1, 32);
+        var cylinder=new THREE.Mesh(geometry2, mat);
+        cylinder.position.set(1, 0, 0);
+        scene.add(cylinder);
+
         update();
 
         // 毎フレーム時に実行されるループイベントです
