@@ -48,6 +48,12 @@
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
 
+        var textureLoader2=new THREE.TextureLoader();
+        var texture2=textureLoader.load("face.jpg");
+        var mat2=new THREE.MeshPhongMaterial();
+        mat2.map=texture;
+
+
         // バンプマップ読み込み
         var bump = textureLoader.load("stone-bump.jpg");
         mat.bumpMap = bump;
@@ -58,6 +64,10 @@
         var cylinder=new THREE.Mesh(geometry, mat);
         cylinder.position.set(0, 0, 0);
         scene.add(cylinder);
+
+        var geometry2=new THREE.SphereGeometry(1, 32, 32);
+        var sphere=new THREE.Mesh(geometry2, mat2);
+        scene.add(sphere);
 
         update();
 
@@ -70,6 +80,11 @@
            // 箱を回転させる
           cylinder.rotation.x += 0.01;
           cylinder.rotation.y += 0.01;
+
+          sphere.position.y+=0.01;
+          if(sphere.position.y>2){
+            sphere.position.y=0;
+          }
         }
       }
     </script>
