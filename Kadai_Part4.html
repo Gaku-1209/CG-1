@@ -78,11 +78,11 @@
           renderer.render(scene, camera);
           requestAnimationFrame(update);
 
-           // 箱を回転させる
+           //角柱を回転させる
           cylinder.rotation.x += 0.01;
           cylinder.rotation.y += 0.01;
 
-          sphere.rotation.x=0.01;
+          sphere.rotation.x=0.1;
           sphere.position.y+=0.01;
           if(sphere.position.y>4){
             sphere.position.y=0;
