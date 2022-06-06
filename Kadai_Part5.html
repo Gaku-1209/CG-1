@@ -53,7 +53,7 @@
         // 木0をスプライトで作成
         var textureLoader = new THREE.TextureLoader();  
         var texture0 = textureLoader.load("img/old.buil.png");
-        const material0 = new THREE.SpriteMaterial({ map: texture0,});
+        const material0 = new THREE.SpriteMaterial({ map: texture0});
 
         const sprite0 = new THREE.Sprite(material0);
         sprite0.position.x = 0;
@@ -64,7 +64,7 @@
 
         // 木1をスプライトで作成 
         var texture1 = textureLoader.load("img2/tree1.png");
-        const material1 = new THREE.SpriteMaterial({ map: texture1,});
+        const material1 = new THREE.SpriteMaterial({ map: texture1});
 
         const sprite1 = new THREE.Sprite(material1);
         sprite1.position.x = 100;
@@ -75,7 +75,7 @@
 
         // 木1をスプライトで作成 
         var texture2 = textureLoader.load("img2/tree2.png");
-        const material2 = new THREE.SpriteMaterial({ map: texture2,});
+        const material2 = new THREE.SpriteMaterial({ map: texture2});
 
         const sprite2 = new THREE.Sprite(material2);
         sprite2.position.x = -100;
