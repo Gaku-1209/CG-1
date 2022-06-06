@@ -27,7 +27,6 @@
         // シーンを作成
         const scene = new THREE.Scene();
 
-        scene.fog=new THREE.Fog(0xffffff, 4, 20);
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
         // カメラの初期座標を設定
@@ -60,7 +59,7 @@
           sprite.position.y =0;
           sprite.position.z = 2 * (Math.random() - 0.5);
           // スケールを調整
-          sprite.scale.set(0.5, 0.5, 0.5);
+          sprite.scale.set(0.5, 1.5, 0.5);
 
           scene.add(sprite);
         }
