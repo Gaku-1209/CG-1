@@ -55,7 +55,7 @@
         for (let i = 0; i < 10; i++) {
           const sprite = new THREE.Sprite(material);
           // ランダムな座標に配置
-          sprite.position.x = 2 * (Math.random() - 0.5);
+          sprite.position.x = (Math.random() - 0.5);
           sprite.position.y =0;
           sprite.position.z = 2 * (Math.random() - 0.5);
           // スケールを調整
@@ -68,7 +68,7 @@
         var planeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
         var plane = new THREE.Mesh(planeGeometry,planeMaterial);
         plane.rotation.set( -Math.PI/2, 0, 0 );
-        plane.position.set(-1,0,0);
+        plane.position.set(-5,0,0);
         scene.add(plane);
         update();
 
