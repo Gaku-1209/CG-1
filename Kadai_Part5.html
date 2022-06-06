@@ -65,10 +65,10 @@
         }
 
         var planeGeometry = new THREE.PlaneGeometry(5,5,10,10); //縦、横、分割数、分割数
-        var planeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff});
+        var planeMaterial = new THREE.MeshBasicMaterial({color: 0x808080});
         var plane = new THREE.Mesh(planeGeometry,planeMaterial);
         plane.rotation.set( -Math.PI/2, 0, 0 );
-        plane.position.set(0,0,0);
+        plane.position.set(0,-0.5,0);
         scene.add(plane);
         update();
 
