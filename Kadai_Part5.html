@@ -55,7 +55,7 @@
         for (let i = 0; i < 10; i++) {
           const sprite = new THREE.Sprite(material);
           // ランダムな座標に配置
-          sprite.position.x = (Math.random() - 0.5);
+          sprite.position.x = 3*(Math.random() - 0.5);
           sprite.position.y =0;
           sprite.position.z = 2 * (Math.random() - 0.5);
           // スケールを調整
@@ -64,12 +64,6 @@
           scene.add(sprite);
         }
 
-        var planeGeometry = new THREE.PlaneGeometry(5,5,10,10); //縦、横、分割数、分割数
-        var planeMaterial = new THREE.MeshBasicMaterial({color: 0x808080});
-        var plane = new THREE.Mesh(planeGeometry,planeMaterial);
-        plane.rotation.set( -Math.PI/2, 0, 0 );
-        plane.position.set(0,-1,0);
-        scene.add(plane);
         update();
 
         // 毎フレーム時に実行されるループイベントです
