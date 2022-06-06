@@ -77,6 +77,15 @@
             scene.add(sprite2);
         }
 
+        var textureLoader3=new THREE.TextureLoader();
+        var texture3=textureLoader3.load("stone.png");
+        const material3=new THREE.SpriteMaterial({map: texture3});
+        const sprite3=new THREE.Sprite(material3);
+        sprite3.position.set(0, 0, 0);
+        sprite3.rotation.set(-Math.PI/2, 0, 0);
+        sprite3.scale.set(3, 3, 3);
+        scene.add(sprite3);
+        
         update();
 
         // 毎フレーム時に実行されるループイベントです
