@@ -82,12 +82,11 @@
         var mat=new THREE.MeshPhongMaterial();
         mat.map=texture3;
 
-        var geometry=new THREE.PlaneGeometry(5, 5, 5);
+        var geometry=new THREE.CylinderGeometry(5, 5, 0.2, 4);
         var plane=new THREE.Mesh(geometry, mat);
         plane.position.set(0, -0.7, 0);
         plane.rotation.set(-Math.PI/2, 0, 0);
         scene.add(plane);
-        
         update();
 
         // 毎フレーム時に実行されるループイベントです
