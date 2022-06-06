@@ -46,19 +46,13 @@
         // シーンに追加
         scene.add(directionalLight2);
 
-        // helper
-        const gridHelper = new THREE.GridHelper(2,10); // size, step
-        scene.add(gridHelper);
-        const axisHelper = new THREE.AxisHelper(2); //軸の長さ　X：赤、Y：緑、z：青
-        scene.add(axisHelper);
-
-        // 木をスプライトで作成
+        // ビルをスプライトで作成
         var textureLoader = new THREE.TextureLoader();  
         var texture = textureLoader.load("img/img_bb.png");
         const material = new THREE.SpriteMaterial({ map: texture,});
 
-        // 森を作成
-        for (let i = 0; i < 20; i++) {
+        // ビル群を作成
+        for (let i = 0; i < 10; i++) {
           const sprite = new THREE.Sprite(material);
           // ランダムな座標に配置
           sprite.position.x = 2 * (Math.random() - 0.5);
@@ -69,6 +63,14 @@
 
           scene.add(sprite);
         }
+
+        var geometry=new THREE.PlaneGeometry(5, 5, 5);
+        var material1=new THREE.MeshPhongMaterial({color: 0xffffff});
+
+        var plane=new THREE.Mesh(geometry, material1);
+        plane.position.set(0, 0, 0);
+        plane.rotation.x(Math.PI/2);
+        scene.add(plane);
         
         update();
 
