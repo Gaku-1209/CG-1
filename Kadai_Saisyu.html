@@ -56,11 +56,15 @@
         scene.add(pointLight);
 
         
-        // テクスチャー読み込み
-        var textureLoader = new THREE.TextureLoader();  
-        var texture = textureLoader.load("img/old.buil.png");
-        var mat = new THREE.MeshPhongMaterial();
-        mat.map = texture;
+        //6面分のテクスチャー読み込み
+        var materials = [
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("stone.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("stone.png")}),
+        ];
 
 
         //平面の作成
@@ -72,9 +76,10 @@
         plane.receiveShadow=true;
         scene.add(plane);
 
+        var material2= new THREE.MeshFaceMaterial(materials); // マテリアルをセット
         //角柱を作成
         var geometry2=new THREE.CylinderGeometry(1.5, 1.5, 2, 4);
-        var cylinder=new THREE.Mesh(geometry2, mat);
+        var cylinder=new THREE.Mesh(geometry2, material2);
         cylinder.position.set(-0.5, 0.2, 0);
         cylinder.castShadow=true;
         scene.add(cylinder);
