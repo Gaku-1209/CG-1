@@ -148,17 +148,17 @@
         scene.add(people);
 
         //車
-        var cargeometry=new THREE.CylinderGeometry(0.3, 0.3, 0.7, 4);
+        var cargeometry=new THREE.CylinderGeometry(0.6, 0.6, 1, 4);
         var material3=new THREE.MeshPhongMaterial({color:0xff0000});
         var car1=new THREE.Mesh(cargeometry, material3);
         car1.castShadow=true;
-        car1.position.set(-0.4, -0.2, 0.5);
+        car1.position.set(-0.4, 0.1, 1.1);
         car1.rotation.set(-Math.PI/2, -Math.PI/4, 0);
         scene.add(car1);
 
-        var cargeometry2=new THREE.CylinderGeometry(0.3, 0.3, 1, 4);
+        var cargeometry2=new THREE.CylinderGeometry(0.6, 0.6, 1.5, 4);
         var car2=new THREE.Mesh(cargeometry2, material3);
-        car2.position.set(-0.4, -0.3, 0.5);
+        car2.position.set(-0.4, -0.1, 0.85);
         car2.rotation.set(-Math.PI/2, -Math.PI/4, 0);
         scene.add(car2);
 
