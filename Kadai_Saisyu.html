@@ -45,10 +45,11 @@
         scene.add(directionalLight2);
 
         //ポイントライト
-        var pointLight=new THREE.PointLight(0xfd7e00);
+        var pointLight=new THREE.PointLight(0xec5d0f);
         pointLight.position.set(-3, 10.5, -0.5);
         pointLight.castShadow=true;
         scene.add(pointLight);
+        
 
         var textureLoader = new THREE.TextureLoader();  
         var texture = textureLoader.load("stone.png");
