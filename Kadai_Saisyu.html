@@ -58,11 +58,10 @@
         
         // テクスチャー読み込み
         var textureLoader = new THREE.TextureLoader();  
-        var texture = textureLoader.load("img/oldbuil.png");
+        var texture = textureLoader.load("img/old.buil.png");
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
 
-        
 
         //平面の作成
         var geometry=new THREE.PlaneGeometry(5, 5, 5);
