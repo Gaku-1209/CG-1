@@ -58,13 +58,11 @@
         
         // テクスチャー読み込み
         var textureLoader = new THREE.TextureLoader();  
-        var texture = textureLoader.load("stone.png");
+        var texture = textureLoader.load("img/oldbuil.png");
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
 
-        var bump = textureLoader.load("stone-bump.jpg");
-        mat.bumpMap = bump;
-        mat.bumpscale = 0.2;
+        
 
         //平面の作成
         var geometry=new THREE.PlaneGeometry(5, 5, 5);
@@ -76,9 +74,9 @@
         scene.add(plane);
 
         //角柱を作成
-        var geometry2=new THREE.CylinderGeometry(0.5, 0.5, 3, 4);
+        var geometry2=new THREE.CylinderGeometry(1.5, 1.5, 2, 4);
         var cylinder=new THREE.Mesh(geometry2, mat);
-        cylinder.position.set(0, 0, 0);
+        cylinder.position.set(-0.5, 0.2, 0);
         cylinder.castShadow=true;
         scene.add(cylinder);
 
