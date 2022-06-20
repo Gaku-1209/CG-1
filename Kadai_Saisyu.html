@@ -55,6 +55,11 @@
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
 
+        var textureLoader2 = new THREE.TextureLoader();  
+        var texture2 = textureLoader.load("clock.png");
+        var mat2 = new THREE.MeshPhongMaterial();
+        mat2.map = texture;
+
         //平面の作成
         var geometry=new THREE.PlaneGeometry(5, 5, 5);
         var material=new THREE.MeshPhongMaterial({color:0xffffff});
@@ -68,18 +73,28 @@
         var geometry2=new THREE.CylinderGeometry(0.5, 0.5, 2, 4);
         var cylinder=new THREE.Mesh(geometry2, mat);
         cylinder.castShadow=true;
-        cylinder.position.set(0, 0.2, 0);
+        cylinder.position.set(-2, 0.2, 0);
         cylinder.rotation.set(0, -Math.PI/4, 0);
-        scene.add(cylinder);
-        
 
         //四角錐
         var geometry3=new THREE.ConeGeometry(0.5, 0.5, 4);
         var cone=new THREE.Mesh(geometry3, mat);
         cone.castShadow=true;
-        cone.position.set(0, 1.45, 0);
+        cone.position.set(-2, 1.45, 0);
         cone.rotation.set(0, -Math.PI/4, 0);
-        scene.add(cone);
+
+        var geometry4=new THREE.CylinderGeometry(0.2, 0.2, 0.1, 32);
+        var cylinder2=new THREE.Mesh(geometry4, mat2);
+        cylinder2.position.set(-1.65, 0.9, 0);
+        cylinder2.rotation.set(-Math.PI/2, 0, -Math.PI/2);
+
+
+        const clock=new THREE.Group();
+        clock.add(cylinder);
+        clock.add(cone);
+        clock.add(cylinder2);
+        scene.add(clock);
+        
 
         update();
         // 毎フレーム時に実行されるループイベントです
