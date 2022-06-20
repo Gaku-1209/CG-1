@@ -45,7 +45,7 @@
         scene.add(directionalLight2);
 
         //ポイントライト
-        var pointLight=new THREE.PointLight(0xffffff);
+        var pointLight=new THREE.PointLight(0xfd7e00);
         pointLight.position.set(-3, 10.5, -0.5);
         pointLight.castShadow=true;
         scene.add(pointLight);
@@ -60,10 +60,14 @@
         var mat2 = new THREE.MeshPhongMaterial();
         mat2.map = texture2;
 
+        var textureLoader3 = new THREE.TextureLoader();  
+        var texture3 = textureLoader3.load("road.png");
+        var mat3 = new THREE.MeshPhongMaterial();
+        mat3.map = texture3;
+
         //平面の作成
         var geometry=new THREE.PlaneGeometry(5, 5, 5);
-        var material=new THREE.MeshPhongMaterial({color:0xffffff});
-        var plane=new THREE.Mesh(geometry, material);
+        var plane=new THREE.Mesh(geometry, mat3);
         plane.position.set(0, -0.75, 0);
         plane.rotation.set(-Math.PI/2, 0, 0);
         plane.receiveShadow=true;
