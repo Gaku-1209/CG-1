@@ -53,7 +53,7 @@
         // いろいろなマテリアルの実験
         var material = new THREE.MeshStandardMaterial({ color: 0x864a20, specular:0xffff00, shininess:4 });
 
-        //脚1
+       //脚1
         var leg_g=new THREE.CylinderGeometry(0.2, 0.2, 2, 4);
         var leg=new THREE.Mesh(leg_g, material);
         leg.position.set(2.7, 0, 0);
@@ -77,7 +77,7 @@
         var table_g=new THREE.CylinderGeometry(3, 3, 0.2, 4);
         var table=new THREE.Mesh(table_g, material);
         table.receiveShadow=true;
-        table.position.set(0, 1, 0);
+        table.position.set(0, 1, 0); 
 
         //グラス
         var cup_g=new THREE.CylinderGeometry(0.2, 0.13, 0.7, 32);

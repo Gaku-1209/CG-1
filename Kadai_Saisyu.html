@@ -24,11 +24,6 @@
 
         // シーンを作成
         const scene = new THREE.Scene();
-        /*{
-            const color=0xffffff;
-            const density=0.1;
-            scene.fog=new THREE.FogExp2(color, density);
-        }*/
 
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
@@ -55,17 +50,6 @@
         pointLight.castShadow=true;
         scene.add(pointLight);
 
-        
-        //6面分のテクスチャー読み込み
-        var materials = [
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("stone.png")}),
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("stone.png")}),
-        ];
-
 
         //平面の作成
         var geometry=new THREE.PlaneGeometry(5, 5, 5);
@@ -75,14 +59,7 @@
         plane.rotation.set(-Math.PI/2, 0, 0);
         plane.receiveShadow=true;
         scene.add(plane);
-
-        var material2= new THREE.MeshFaceMaterial(materials); // マテリアルをセット
-        //角柱を作成
-        var geometry2=new THREE.CylinderGeometry(1.5, 1.5, 2, 4);
-        var cylinder=new THREE.Mesh(geometry2, material2);
-        cylinder.position.set(-0.5, 0.2, 0);
-        cylinder.castShadow=true;
-        scene.add(cylinder);
+        
 
         update();
 
