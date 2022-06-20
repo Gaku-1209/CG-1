@@ -201,7 +201,11 @@
           // レンダリング
           renderer.render(scene, camera);
           requestAnimationFrame(update);
-        }
+          car.position.z-=0.03;
+          if(car.position.z<-5){
+            car.position.z=3;
+          }
+        }        
       }
     </script>
 </body>
