@@ -88,13 +88,61 @@
         cylinder2.position.set(-1.65, 1.4, 0);
         cylinder2.rotation.set(0, -Math.PI, -Math.PI/2);
 
-
         const clock=new THREE.Group();
         clock.add(cylinder);
         clock.add(cone);
         clock.add(cylinder2);
         scene.add(clock);
         
+
+        var geometry5=new THREE.SphereGeometry(0.1, 32, 32);
+        var material2=new THREE.MeshPhongMaterial({color:0xf4be9b});
+        var sphere=new THREE.Mesh(geometry5, material2);
+        sphere.position.set(-1.3, 0.6, 0);
+
+        var geometry6=new THREE.CylinderGeometry(0.05, 0.05, 0.2, 32);
+        var cylinder3=new THREE.Mesh(geometry6, material2);
+        cylinder3.position.set(-1.3, 0.5, 0);
+
+        var geometry7=new THREE.CylinderGeometry(0.2, 0.2, 0.6, 4);
+        var cylinder4=new THREE.Mesh(geometry7, material2);
+        cylinder4.castShadow=true;
+        cylinder4.position.set(-1.3, 0.1, 0);
+        cylinder4.rotation.set(0, -Math.PI/4, 0);
+
+        var geometry8=new THREE.CylinderGeometry(0.05, 0.05, 0.6, 4);
+        var cylinder5=new THREE.Mesh(geometry8, material2);
+        cylinder5.castShadow=true;
+        cylinder5.position.set(-1.3, -0.4, 0.06);
+        cylinder5.rotation.set(0, -Math.PI/4, 0);
+        
+        var cylinder6=new THREE.Mesh(geometry8, material2);
+        cylinder6.castShadow=true;
+        cylinder6.position.set(-1.3, -0.4, -0.06);
+        cylinder6.rotation.set(0, -Math.PI/4, 0);
+
+        var geometry9=new THREE.CylinderGeometry(0.05, 0.05, 0.4, 32);
+        var cylinder7=new THREE.Mesh(geometry9, material2);
+        cylinder7.castShadow=true;
+        cylinder7.position.set(-1.3, 0.1, 0.2);
+        cylinder7.rotation.set(0, -Math.PI/2, Math.PI/6);
+
+        var cylinder8=new THREE.Mesh(geometry9, material2);
+        cylinder8.castShadow=true;
+        cylinder8.position.set(-1.3, 0.1, -0.2);
+        cylinder8.rotation.set(0, -Math.PI/2, -Math.PI/6);
+
+
+
+        const people=new THREE.Group();
+        people.add(sphere);
+        people.add(cylinder3);
+        people.add(cylinder4);
+        people.add(cylinder5);
+        people.add(cylinder6);
+        people.add(cylinder7);
+        people.add(cylinder8);
+        scene.add(people);
 
         update();
         // 毎フレーム時に実行されるループイベントです
