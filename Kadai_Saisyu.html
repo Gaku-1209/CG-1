@@ -174,11 +174,25 @@
         car4.position.set(-0.05, -0.55, 0.4);
         car4.rotation.set(0, -Math.PI, -Math.PI/2);
 
+        var cargeometry5=new THREE.CylinderGeometry(0.2, 0.2, 0.1, 32);
+        var car5=new THREE.Mesh(cargeometry5, material4);
+        car5.castShadow=true;
+        car5.position.set(-0.75, -0.55, 1.3);
+        car5.rotation.set(0, -Math.PI, -Math.PI/2);
+
+        var cargeometry6=new THREE.CylinderGeometry(0.2, 0.2, 0.1, 32);
+        var car6=new THREE.Mesh(cargeometry6, material4);
+        car6.castShadow=true;
+        car6.position.set(-0.75, -0.55, 0.4);
+        car6.rotation.set(0, -Math.PI, -Math.PI/2);
+
         const car=new THREE.Group();
         car.add(car1);
         car.add(car2);
         car.add(car3);
         car.add(car4);
+        car.add(car5);
+        car.add(car6);
         scene.add(car);
 
         update();
