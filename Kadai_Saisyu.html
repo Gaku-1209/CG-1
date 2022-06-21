@@ -26,9 +26,8 @@
         const scene = new THREE.Scene();
         {
           const color=0xffffff;
-          const near=-2;
-          const far=-5;
-          scene.fog=new THREE.Fog(color, near, far);
+          const density=0.5;
+          scene.fog=new THREE.FogExp2(density);
         }
 
         // カメラを作成
