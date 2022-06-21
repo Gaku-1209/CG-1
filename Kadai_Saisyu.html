@@ -52,14 +52,11 @@
 
         //ポイントライト
         var directionalLight=new THREE.PointLight(0xec5d0f);
-        directionalLight.position.set(-2, 5.5, -2);
+        directionalLight.position.set(2, 5.5, -2);
         directionalLight.castShadow=true;
         scene.add(directionalLight);
 
-        var directionalLight2=new THREE.PointLight(0xec5d0f);
-        directionalLight2.position.set(2, 5.5, -2);
-        directionalLight2.castShadow=true;
-        scene.add(directionalLight2);
+        
 
 
         var textureLoader = new THREE.TextureLoader();  
