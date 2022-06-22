@@ -52,7 +52,7 @@
 
         //ポイントライト
         var directionalLight=new THREE.DirectionalLight(0xec5d0f);
-        directionalLight.position.set(3, 5.5, -2);
+        directionalLight.position.set(-3, 5.5, -2);
         directionalLight.castShadow=true;
         scene.add(directionalLight);
 
@@ -93,7 +93,13 @@
         building.position.set(-7, 1.6, -20);
         building.rotation.set(0, -Math.PI/4, 0);
         building.castShadow=true;
-        scene.add(building);
+
+        //建物
+        var building2=new THREE.Mesh(building_g, mat4);
+        building2.position.set(-7, 1.6, -10);
+        building2.rotation.set(0, -Math.PI/4, 0);
+        building2.castShadow=true;
+
         
         //角柱
         var geometry2=new THREE.CylinderGeometry(0.5, 0.5, 2.5, 4);
@@ -121,6 +127,7 @@
         clock.add(cone);
         clock.add(cylinder2);
         clock.add(building);
+        clock.add(building2);
         scene.add(clock);
         
         //人間
