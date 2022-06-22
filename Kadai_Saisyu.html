@@ -26,8 +26,8 @@
         const scene = new THREE.Scene();
         {
           const color=0xffffff;
-          const near=2;
-          const far=20;
+          const near=10;
+          const far=50;
           scene.fog=new THREE.Fog(color, near, far);
         }
 
@@ -52,7 +52,7 @@
 
         //ポイントライト
         var directionalLight=new THREE.DirectionalLight(0xec5d0f);
-        directionalLight.position.set(2, 5.5, -2);
+        directionalLight.position.set(3, 5.5, -2);
         directionalLight.castShadow=true;
         scene.add(directionalLight);
 
