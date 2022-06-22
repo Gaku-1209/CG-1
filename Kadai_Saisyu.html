@@ -26,7 +26,7 @@
         const scene = new THREE.Scene();
         {
           const color=0xffffff;
-          const near=10;
+          const near=5;
           const far=50;
           scene.fog=new THREE.Fog(color, near, far);
         }
@@ -40,12 +40,12 @@
         const controls = new THREE.OrbitControls(camera, document.body); 
         
         // 平行光源1
-        /*var directionalLight1 = new THREE.DirectionalLight(0xffffff);
+        var directionalLight1 = new THREE.DirectionalLight(0xffffff);
         directionalLight1.position.set(10, 10, 10);
         // シーンに追加
         scene.add(directionalLight1);
         // 平行光源2
-        var directionalLight2 = new THREE.DirectionalLight(0x888888);
+        /*var directionalLight2 = new THREE.DirectionalLight(0x888888);
         directionalLight2.position.set(-10, -10, 10);
         // シーンに追加
         scene.add(directionalLight2);*/
