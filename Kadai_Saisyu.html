@@ -45,16 +45,21 @@
         // シーンに追加
         scene.add(directionalLight1);
         // 平行光源2
-        var directionalLight2 = new THREE.DirectionalLight(0x888888);
+        /*var directionalLight2 = new THREE.DirectionalLight(0x888888);
         directionalLight2.position.set(-10, -10, 10);
         // シーンに追加
-        scene.add(directionalLight2);
+        scene.add(directionalLight2);*/
 
         //ポイントライト
-        var directionalLight=new THREE.PointLight(0xec5d0f);
+        var directionalLight=new THREE.DirectionalLight(0xec5d0f);
         directionalLight.position.set(2, 5.5, -2);
         directionalLight.castShadow=true;
         scene.add(directionalLight);
+
+        var pointLight=new THREE.PointLight(0xffffff);
+        pointLight.position.set(-1.8, 6.5, 0);
+        pointLight.castShadow=true;
+        scene.add(pointLight);
 
         
 
