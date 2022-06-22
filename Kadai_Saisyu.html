@@ -74,16 +74,8 @@
         var mat3 = new THREE.MeshPhongMaterial();
         mat3.map = texture3;
 
-        const sprite=new THREE.SpriteMaterial({map: texture3});
-        const sprite1=new THREE.Sprite(sprite);
-        sprite1.scale.set(10, 10, 10);
-        sprite1.position.set(0, 0, 0);
-        sprite1.rotation.set(-Math.PI/2, 0, 0);
-        scene.add(sprite1);
-
-
         //平面の作成
-        var geometry=new THREE.PlaneGeometry(5, 5, 5);
+        var geometry=new THREE.PlaneGeometry(30, 30, 30);
         var plane=new THREE.Mesh(geometry, mat3);
         plane.position.set(0, -0.75, 0);
         plane.rotation.set(-Math.PI/2, 0, 0);
