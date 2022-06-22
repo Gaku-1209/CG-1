@@ -34,7 +34,7 @@
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
         // カメラの初期座標を設定
-        camera.position.set(3, 0.5, -5);
+        camera.position.set(0, 5, 0);
 
         // カメラコントローラーを作成
         const controls = new THREE.OrbitControls(camera, document.body); 
@@ -74,8 +74,14 @@
         var mat3 = new THREE.MeshPhongMaterial();
         mat3.map = texture3;
 
+        const sprite=new THREE.SpriteMaterial({map: texture3});
+        const sprite2=new THREE.Sprite(sprite);
+        sprite2.scale.set(5, 5, 5);
+        sprite2.position.set(0, 0, 0);
+        scene.add(sprite2);
+
         //平面の作成
-        var geometry=new THREE.PlaneGeometry(30, 30, 30);
+        var geometry=new THREE.PlaneGeometry(5,5,5);
         var plane=new THREE.Mesh(geometry, mat3);
         plane.position.set(0, -0.75, 0);
         plane.rotation.set(-Math.PI/2, 0, 0);
