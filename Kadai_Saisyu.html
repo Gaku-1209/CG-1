@@ -22,6 +22,10 @@
         renderer.setSize(width, height);
         renderer.shadowMap.enabled=true;
 
+        var textureLoader_b = new THREE.TextureLoader();  
+        var texture_b = textureLoader_b.load("background.png");
+        var mat_b = new THREE.MeshPhongMaterial();
+        mat_b.map = texture_b;
         // シーンを作成
         const scene = new THREE.Scene();
         {
@@ -30,7 +34,7 @@
           const far=50;
           const color2=0xec5d0f;
           scene.fog=new THREE.Fog(color, near, far);
-          scene.background=new THREE.Color(color2);
+          scene.background=new THREE.Mesh(mat_b);
         }
 
         // カメラを作成
