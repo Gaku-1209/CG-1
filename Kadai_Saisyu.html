@@ -110,7 +110,7 @@
         building4.castShadow=true;
 
         var building5=new THREE.Mesh(building_g, mat4);
-        building5.position.set(-17, 1.6, -2);
+        building5.position.set(-17, 1.6, -4);
         building5.rotation.set(0, -Math.PI/4, 0);
         building5.castShadow=true;
         
@@ -241,12 +241,12 @@
         scene.add(people2);
 
         //車
-        var cargeometry=new THREE.CylinderGeometry(0.6, 0.6, 1, 4);
+        var cargeometry=new THREE.CylinderGeometry(0.6, 0.6, 0.4, 4);
         var material3=new THREE.MeshPhongMaterial({color:0xff0000});
         var car1=new THREE.Mesh(cargeometry, material3);
         car1.castShadow=true;
-        car1.position.set(0.4, 0.1, 1.6);
-        car1.rotation.set(-Math.PI/2, -Math.PI/4, 0);
+        car1.position.set(0.4, 0.52, 1.35);
+        car1.rotation.set(0, -Math.PI/4, 0);
 
         var cargeometry2=new THREE.CylinderGeometry(0.6, 0.6, 1.5, 4);
         var car2=new THREE.Mesh(cargeometry2, material3);
