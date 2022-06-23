@@ -22,25 +22,21 @@
         renderer.setSize(width, height);
         renderer.shadowMap.enabled=true;
 
-        var textureLoader_b = new THREE.TextureLoader();  
-        var texture_b = textureLoader_b.load("background.png");
-        var mat_b = new THREE.MeshPhongMaterial();
-        mat_b.map = texture_b;
         // シーンを作成
         const scene = new THREE.Scene();
         {
           const color=0xffffff;
           const near=3;
           const far=50;
-          const color2=0xec5d0f;
+          //const color2=0xec5d0f;
           scene.fog=new THREE.Fog(color, near, far);
-          scene.background=new THREE.Mesh(mat_b);
+          //scene.background=new THREE.Color(color2);
         }
 
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
         // カメラの初期座標を設定
-        camera.position.set(8, 1.5, -7.5);
+        camera.position.set(8, 1.5, -3.5);
 
         // カメラコントローラーを作成
         const controls = new THREE.OrbitControls(camera, document.body); 
@@ -62,7 +58,14 @@
         directionalLight.castShadow=true;
         scene.add(directionalLight);
 
-        
+        var textureLoader_b=new THREE.TextureLoader();
+        var texture_b=textureLoader_b.load("background.png");
+        const material_b=new THREE.SpriteMaterial({map: texture_b});
+
+        const sprite=new THREE.Sprite(material_b);
+        sprite.scale.set(10, 10, 10);
+        sprite.position.set(-10, 0, 10);
+        scene.add(sprite);
 
 
         var textureLoader = new THREE.TextureLoader();  
