@@ -104,11 +104,15 @@
         building3.rotation.set(0, -Math.PI/4, 0);
         building3.castShadow=true;
 
-        var building_g2=new THREE.CylinderGeometry(8, 8, 5, 4);
-        var building4=new THREE.Mesh(building_g2, mat4);
-        building4.position.set(-17, 1.6, 0);
+        var building4=new THREE.Mesh(building_g, mat4);
+        building4.position.set(-17, 1.6, 4);
         building4.rotation.set(0, -Math.PI/4, 0);
         building4.castShadow=true;
+
+        var building5=new THREE.Mesh(building_g, mat4);
+        building5.position.set(-17, 1.6, -2);
+        building5.rotation.set(0, -Math.PI/4, 0);
+        building5.castShadow=true;
         
         //角柱
         var geometry2=new THREE.CylinderGeometry(0.5, 0.5, 5, 4);
@@ -139,6 +143,7 @@
         clock.add(building2);
         clock.add(building3);
         clock.add(building4);
+        clock.add(building5);
         scene.add(clock);
         
         //人間
