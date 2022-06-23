@@ -238,7 +238,7 @@
         people2.add(leg2);
         people2.add(arm1);
         people2.add(arm2);
-        scene.add(people2);
+        //scene.add(people2);
 
         //車
         var cargeometry=new THREE.CylinderGeometry(0.6, 0.6, 0.4, 4);
@@ -307,9 +307,10 @@
 
               if(clock.position.z>21){
                 clock.position.z=21;
+                
                 people2.position.y=1.5;
                 people2.position.x-=0.01;
-
+                scene.add(people2);
                 if(people2.position.x<-3.9){
                   people2.position.x=-3.9;
                 }
