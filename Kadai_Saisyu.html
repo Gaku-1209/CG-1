@@ -33,6 +33,10 @@
           scene.background=new THREE.Color(color2);
         }
 
+        const loader=new THREE.TextureLoader();
+        const bgTexture=loader.load("background.png");
+        scene.background=bgTexture;
+
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
         // カメラの初期座標を設定
@@ -73,21 +77,10 @@
         var mat3 = new THREE.MeshPhongMaterial();
         mat3.map = texture3;
 
-        /*var textureLoader4=new THREE.TextureLoader();
+        var textureLoader4=new THREE.TextureLoader();
         var texture4=textureLoader4.load("img/old.buil.png");
         var mat4=new THREE.MeshPhongMaterial();
-        mat4.map=texture4;*/
-
-        var materials = [
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("stone.png")}),
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("stone.png")}),
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
-          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
-        ];
-        
-        var mat4=new THREE.MeshFaceMaterial(materials);
+        mat4.map=texture4;
 
         //平面の作成
         var geometry=new THREE.PlaneGeometry(60, 60, 60);
