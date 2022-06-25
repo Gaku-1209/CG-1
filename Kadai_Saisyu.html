@@ -73,10 +73,21 @@
         var mat3 = new THREE.MeshPhongMaterial();
         mat3.map = texture3;
 
-        var textureLoader4=new THREE.TextureLoader();
+        /*var textureLoader4=new THREE.TextureLoader();
         var texture4=textureLoader4.load("img/old.buil.png");
         var mat4=new THREE.MeshPhongMaterial();
-        mat4.map=texture4;
+        mat4.map=texture4;*/
+
+        var materials = [
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("stone.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("stone.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("img/old.buil.png")}),
+        ];
+        
+        var mat4=new THREE.MeshFaceMaterial(materials);
 
         //平面の作成
         var geometry=new THREE.PlaneGeometry(60, 60, 60);
@@ -88,6 +99,7 @@
 
         //建物
         var building_g=new THREE.CylinderGeometry(5, 5, 5, 4);
+
         var building=new THREE.Mesh(building_g, mat4);
         building.position.set(-7, 1.6, -20);
         building.rotation.set(0, -Math.PI/4, 0);
