@@ -99,30 +99,35 @@
         building.position.set(-7, 1.6, -20);
         building.rotation.set(0, -Math.PI/4, 0);
         building.castShadow=true;
+        building.receiveShadow=true;
 
         //建物
         var building2=new THREE.Mesh(building_g, mat4);
         building2.position.set(-7, 1.6, -10);
         building2.rotation.set(0, -Math.PI/4, 0);
         building2.castShadow=true;
+        building2.receiveShadow=true;
 
         //建物
         var building3=new THREE.Mesh(building_g, mat4);
         building3.position.set(-7, 1.6, 10);
         building3.rotation.set(0, -Math.PI/4, 0);
         building3.castShadow=true;
+        building3.receiveShadow=true;
 
         //建物
         var building4=new THREE.Mesh(building_g, mat4);
         building4.position.set(-17, 1.6, 4);
         building4.rotation.set(0, -Math.PI/4, 0);
         building4.castShadow=true;
+        building4.receiveShadow=true;
 
         //建物
         var building5=new THREE.Mesh(building_g, mat4);
         building5.position.set(-17, 1.6, -4);
         building5.rotation.set(0, -Math.PI/4, 0);
         building5.castShadow=true;
+        building5.receiveShadow=true;
         
         //時計塔
         var geometry2=new THREE.CylinderGeometry(0.5, 0.5, 5, 4);
@@ -130,6 +135,7 @@
         cylinder.castShadow=true;
         cylinder.position.set(-2, 1.7, 0);
         cylinder.rotation.set(0, -Math.PI/4, 0);
+        cylinder.receiveShadow=true;
 
         //時計塔
         var geometry3=new THREE.ConeGeometry(0.5, 0.5, 4);
@@ -137,6 +143,7 @@
         cone.castShadow=true;
         cone.position.set(-2, 4.45, 0);
         cone.rotation.set(0, -Math.PI/4, 0);
+        cone.receiveShadow=true;
 
         //時計
         var geometry4=new THREE.CylinderGeometry(0.25, 0.25, 0.1, 32);
@@ -144,6 +151,7 @@
         cylinder2.castShadow=true;
         cylinder2.position.set(-1.65, 3.6, 0);
         cylinder2.rotation.set(0, -Math.PI, -Math.PI/2);
+        cylinder2.receiveShadow=true;
 
         //地面、建物、時計塔をグループ化
         const clock=new THREE.Group();
