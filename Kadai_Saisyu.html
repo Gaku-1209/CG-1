@@ -53,37 +53,37 @@
         directionalLight1.position.set(10, 10, 10);
         // シーンに追加
         scene.add(directionalLight1);
-        // 平行光源2
-        /*var directionalLight2 = new THREE.DirectionalLight(0x888888);
-        directionalLight2.position.set(-10, -10, 10);
-        // シーンに追加
-        scene.add(directionalLight2);*/
 
-        //ポイントライト
+        //太陽光(オレンジ)
         var directionalLight=new THREE.DirectionalLight(0xec5d0f);
         directionalLight.position.set(-2, 5.5, -3);
         directionalLight.castShadow=true;
         scene.add(directionalLight);
 
+        //時計塔のテクスチャ
         var textureLoader = new THREE.TextureLoader();  
         var texture = textureLoader.load("stone.png");
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
 
+        //時計のテクスチャ
         var textureLoader2 = new THREE.TextureLoader();  
         var texture2 = textureLoader2.load("clock_roma.png");
         var mat2 = new THREE.MeshPhongMaterial();
         mat2.map = texture2;
 
+        //道路のテクスチャ
         var textureLoader3 = new THREE.TextureLoader();  
         var texture3 = textureLoader3.load("road2.png");
         var mat3 = new THREE.MeshPhongMaterial();
         mat3.map = texture3;
 
+        //建物のテクスチャ
         var textureLoader4=new THREE.TextureLoader();
         var texture4=textureLoader4.load("img/old.buil.png");
         var mat4=new THREE.MeshPhongMaterial();
         mat4.map=texture4;
+
 
         //平面の作成
         var geometry=new THREE.PlaneGeometry(60, 60, 60);
@@ -95,7 +95,6 @@
 
         //建物
         var building_g=new THREE.CylinderGeometry(5, 5, 5, 4);
-
         var building=new THREE.Mesh(building_g, mat4);
         building.position.set(-7, 1.6, -20);
         building.rotation.set(0, -Math.PI/4, 0);
@@ -107,41 +106,46 @@
         building2.rotation.set(0, -Math.PI/4, 0);
         building2.castShadow=true;
 
+        //建物
         var building3=new THREE.Mesh(building_g, mat4);
         building3.position.set(-7, 1.6, 10);
         building3.rotation.set(0, -Math.PI/4, 0);
         building3.castShadow=true;
 
+        //建物
         var building4=new THREE.Mesh(building_g, mat4);
         building4.position.set(-17, 1.6, 4);
         building4.rotation.set(0, -Math.PI/4, 0);
         building4.castShadow=true;
 
+        //建物
         var building5=new THREE.Mesh(building_g, mat4);
         building5.position.set(-17, 1.6, -4);
         building5.rotation.set(0, -Math.PI/4, 0);
         building5.castShadow=true;
         
-        //角柱
+        //時計塔
         var geometry2=new THREE.CylinderGeometry(0.5, 0.5, 5, 4);
         var cylinder=new THREE.Mesh(geometry2, mat);
         cylinder.castShadow=true;
         cylinder.position.set(-2, 1.7, 0);
         cylinder.rotation.set(0, -Math.PI/4, 0);
 
-        //四角錐
+        //時計塔
         var geometry3=new THREE.ConeGeometry(0.5, 0.5, 4);
         var cone=new THREE.Mesh(geometry3, mat);
         cone.castShadow=true;
         cone.position.set(-2, 4.45, 0);
         cone.rotation.set(0, -Math.PI/4, 0);
 
+        //時計
         var geometry4=new THREE.CylinderGeometry(0.25, 0.25, 0.1, 32);
         var cylinder2=new THREE.Mesh(geometry4, mat2);
         cylinder2.castShadow=true;
         cylinder2.position.set(-1.65, 3.6, 0);
         cylinder2.rotation.set(0, -Math.PI, -Math.PI/2);
 
+        //地面、建物、時計塔をグループ化
         const clock=new THREE.Group();
         clock.add(plane);
         clock.add(cylinder);
@@ -154,6 +158,7 @@
         clock.add(building5);
         scene.add(clock);
         
+
         //人間
         var geometry5=new THREE.SphereGeometry(0.1, 32, 32);
         var material2=new THREE.MeshPhongMaterial({color:0xf4be9b});
@@ -194,6 +199,7 @@
         cylinder8.position.set(-1.3, 0.1, -0.2);
         cylinder8.rotation.set(0, -Math.PI/2, -Math.PI/6);
 
+        //人間のパーツをグループ化
         const people=new THREE.Group();
         people.add(sphere);
         people.add(cylinder3);
@@ -204,7 +210,7 @@
         people.add(cylinder8);
         scene.add(people);
 
-        //人間
+        //人間(車から降りた後)
         var head=new THREE.Mesh(geometry5, material2);
         head.castShadow=true;
         head.position.set(-0.1, -0.9, 0);
@@ -238,6 +244,7 @@
         arm2.position.set(-0.1, -1.4, -0.2);
         arm2.rotation.set(0, -Math.PI/2, -Math.PI/6);
 
+        //人間のパーツをグループ化
         const people2=new THREE.Group();
         people2.add(head);
         people2.add(neck);
@@ -246,7 +253,6 @@
         people2.add(leg2);
         people2.add(arm1);
         people2.add(arm2);
-        //scene.add(people2);
 
         //車
         var cargeometry=new THREE.CylinderGeometry(0.6, 0.6, 0.4, 4);
@@ -287,6 +293,7 @@
         car6.position.set(0.05, -0.55, 0.9);
         car6.rotation.set(0, -Math.PI, -Math.PI/2);
 
+        //車のパーツをグループ化
         const car=new THREE.Group();
         car.add(car1);
         car.add(car2);
@@ -304,27 +311,34 @@
           requestAnimationFrame(update);
           car.position.z-=0.01;
 
+          //車が時計塔の前に到着したら
           if(car.position.z<-1.2){
             car.position.z=-1.2;
+            //人を車に向かわせる
             people.position.x+=0.01;
 
+            //人が車に到着したら
             if(people.position.x>1.2){
-              people.position.x=1.3
-              people.position.y=-3.1;
+              //1人目を削除
+              scene.remove(people);
+              //道路、時計塔、建物を動かし、車が動いているようにする
               clock.position.z+=0.03;
 
+              //車が一番右の建物の前に到着したら
               if(clock.position.z>21){
                 clock.position.z=21;
-                
+                //2人目を追加し、建物へ向かわせる
                 people2.position.y=1.5;
                 people2.position.x-=0.01;
                 scene.add(people2);
+
+                //人が建物に入ったら
                 if(people2.position.x<-3.9){
+                  //アニメーション終了
                   people2.position.x=-3.9;
                 }
               }
             }
-            
           }
           
         }        
