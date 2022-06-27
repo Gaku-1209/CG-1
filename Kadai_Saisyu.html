@@ -60,6 +60,11 @@
         directionalLight.castShadow=true;
         scene.add(directionalLight);
 
+        var pointLight=new THREE.PointLight(0xffffff);
+        pointLight.position.set(-1.65, 10, 0);
+        pointLight.castShadow=true;
+        scene.add(pointLight);
+
         //時計塔のテクスチャ
         var textureLoader = new THREE.TextureLoader();  
         var texture = textureLoader.load("stone.png");
