@@ -349,6 +349,13 @@
             if(people.position.x>1.2){
               //1人目を削除
               scene.remove(people);
+              material2.dispose();
+              geometry5.dispose();
+              geometry6.dispose();
+              geometry7.dispose();
+              geometry8.dispose();
+              geometry9.dispose();
+
               //道路、時計塔、建物を動かし、車が動いているようにする
               clock.position.z+=0.03;
 
