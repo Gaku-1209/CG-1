@@ -129,7 +129,7 @@
         building5.castShadow=true;
         building5.receiveShadow=true;
         
-        //時計塔
+        //時計塔(下部)
         var geometry2=new THREE.CylinderGeometry(0.5, 0.5, 5, 4);
         var cylinder=new THREE.Mesh(geometry2, mat);
         cylinder.castShadow=true;
@@ -137,7 +137,7 @@
         cylinder.rotation.set(0, -Math.PI/4, 0);
         cylinder.receiveShadow=true;
 
-        //時計塔
+        //時計塔(上部)
         var geometry3=new THREE.ConeGeometry(0.5, 0.5, 4);
         var cone=new THREE.Mesh(geometry3, mat);
         cone.castShadow=true;
@@ -170,111 +170,111 @@
         //人間
         var geometry5=new THREE.SphereGeometry(0.1, 32, 32);
         var material2=new THREE.MeshPhongMaterial({color:0xf4be9b});
-        var sphere=new THREE.Mesh(geometry5, material2);
-        sphere.castShadow=true;
-        sphere.receiveShadow=true;
-        sphere.position.set(-1.3, 0.6, 0);
-
-        var geometry6=new THREE.CylinderGeometry(0.05, 0.05, 0.2, 32);
-        var cylinder3=new THREE.Mesh(geometry6, material2);
-        cylinder3.castShadow=true;
-        cylinder3.receiveShadow=true;
-        cylinder3.position.set(-1.3, 0.5, 0);
-
-        var geometry7=new THREE.CylinderGeometry(0.2, 0.2, 0.6, 4);
-        var cylinder4=new THREE.Mesh(geometry7, material2);
-        cylinder4.castShadow=true;
-        cylinder4.receiveShadow=true;
-        cylinder4.position.set(-1.3, 0.1, 0);
-        cylinder4.rotation.set(0, -Math.PI/4, 0);
-
-        var geometry8=new THREE.CylinderGeometry(0.05, 0.05, 0.6, 4);
-        var cylinder5=new THREE.Mesh(geometry8, material2);
-        cylinder5.castShadow=true;
-        cylinder5.receiveShadow=true;
-        cylinder5.position.set(-1.3, -0.47, 0.06);
-        cylinder5.rotation.set(0, -Math.PI/4, 0);
-        
-        var cylinder6=new THREE.Mesh(geometry8, material2);
-        cylinder6.castShadow=true;
-        cylinder6.receiveShadow=true;
-        cylinder6.position.set(-1.3, -0.47, -0.06);
-        cylinder6.rotation.set(0, -Math.PI/4, 0);
-
-        var geometry9=new THREE.CylinderGeometry(0.05, 0.05, 0.4, 32);
-        var cylinder7=new THREE.Mesh(geometry9, material2);
-        cylinder7.castShadow=true;
-        cylinder7.receiveShadow=true;
-        cylinder7.position.set(-1.3, 0.1, 0.2);
-        cylinder7.rotation.set(0, -Math.PI/2, Math.PI/6);
-
-        var cylinder8=new THREE.Mesh(geometry9, material2);
-        cylinder8.castShadow=true;
-        cylinder8.receiveShadow=true;
-        cylinder8.position.set(-1.3, 0.1, -0.2);
-        cylinder8.rotation.set(0, -Math.PI/2, -Math.PI/6);
-
-        //人間のパーツをグループ化
-        const people=new THREE.Group();
-        people.add(sphere);
-        people.add(cylinder3);
-        people.add(cylinder4);
-        people.add(cylinder5);
-        people.add(cylinder6);
-        people.add(cylinder7);
-        people.add(cylinder8);
-        scene.add(people);
-
-        //人間(車から降りた後)
         var head=new THREE.Mesh(geometry5, material2);
         head.castShadow=true;
         head.receiveShadow=true;
-        head.position.set(-0.1, -0.9, 0);
+        head.position.set(-1.3, 0.6, 0);
 
+        var geometry6=new THREE.CylinderGeometry(0.05, 0.05, 0.2, 32);
         var neck=new THREE.Mesh(geometry6, material2);
         neck.castShadow=true;
         neck.receiveShadow=true;
-        neck.position.set(-0.1, -1, 0);
+        neck.position.set(-1.3, 0.5, 0);
 
+        var geometry7=new THREE.CylinderGeometry(0.2, 0.2, 0.6, 4);
         var body=new THREE.Mesh(geometry7, material2);
         body.castShadow=true;
         body.receiveShadow=true;
-        body.position.set(-0.1, -1.4, 0);
+        body.position.set(-1.3, 0.1, 0);
         body.rotation.set(0, -Math.PI/4, 0);
 
+        var geometry8=new THREE.CylinderGeometry(0.05, 0.05, 0.6, 4);
         var leg1=new THREE.Mesh(geometry8, material2);
         leg1.castShadow=true;
         leg1.receiveShadow=true;
-        leg1.position.set(-0.1, -1.97, 0.06);
+        leg1.position.set(-1.3, -0.47, 0.06);
         leg1.rotation.set(0, -Math.PI/4, 0);
         
         var leg2=new THREE.Mesh(geometry8, material2);
         leg2.castShadow=true;
         leg2.receiveShadow=true;
-        leg2.position.set(-0.1, -1.97, -0.06);
+        leg2.position.set(-1.3, -0.47, -0.06);
         leg2.rotation.set(0, -Math.PI/4, 0);
 
+        var geometry9=new THREE.CylinderGeometry(0.05, 0.05, 0.4, 32);
         var arm1=new THREE.Mesh(geometry9, material2);
         arm1.castShadow=true;
         arm1.receiveShadow=true;
-        arm1.position.set(-0.1, -1.4, 0.2);
+        arm1.position.set(-1.3, 0.1, 0.2);
         arm1.rotation.set(0, -Math.PI/2, Math.PI/6);
 
         var arm2=new THREE.Mesh(geometry9, material2);
         arm2.castShadow=true;
         arm2.receiveShadow=true;
-        arm2.position.set(-0.1, -1.4, -0.2);
+        arm2.position.set(-1.3, 0.1, -0.2);
         arm2.rotation.set(0, -Math.PI/2, -Math.PI/6);
 
         //人間のパーツをグループ化
+        const people=new THREE.Group();
+        people.add(head);
+        people.add(neck);
+        people.add(body);
+        people.add(leg1);
+        people.add(leg2);
+        people.add(arm1);
+        people.add(arm2);
+        scene.add(people);
+
+        //人間(車から降りた後)
+        var head2=new THREE.Mesh(geometry5, material2);
+        head2.castShadow=true;
+        head2.receiveShadow=true;
+        head2.position.set(-0.1, -0.9, 0);
+
+        var neck2=new THREE.Mesh(geometry6, material2);
+        neck2.castShadow=true;
+        neck2.receiveShadow=true;
+        neck2.position.set(-0.1, -1, 0);
+
+        var body2=new THREE.Mesh(geometry7, material2);
+        body2.castShadow=true;
+        body2.receiveShadow=true;
+        body2.position.set(-0.1, -1.4, 0);
+        body2.rotation.set(0, -Math.PI/4, 0);
+
+        var leg3=new THREE.Mesh(geometry8, material2);
+        leg3.castShadow=true;
+        leg3.receiveShadow=true;
+        leg3.position.set(-0.1, -1.97, 0.06);
+        leg3.rotation.set(0, -Math.PI/4, 0);
+        
+        var leg4=new THREE.Mesh(geometry8, material2);
+        leg4.castShadow=true;
+        leg4.receiveShadow=true;
+        leg4.position.set(-0.1, -1.97, -0.06);
+        leg4.rotation.set(0, -Math.PI/4, 0);
+
+        var arm3=new THREE.Mesh(geometry9, material2);
+        arm3.castShadow=true;
+        arm3.receiveShadow=true;
+        arm3.position.set(-0.1, -1.4, 0.2);
+        arm3.rotation.set(0, -Math.PI/2, Math.PI/6);
+
+        var arm4=new THREE.Mesh(geometry9, material2);
+        arm4.castShadow=true;
+        arm4.receiveShadow=true;
+        arm4.position.set(-0.1, -1.4, -0.2);
+        arm4.rotation.set(0, -Math.PI/2, -Math.PI/6);
+
+        //人間のパーツをグループ化
         const people2=new THREE.Group();
-        people2.add(head);
-        people2.add(neck);
-        people2.add(body);
-        people2.add(leg1);
-        people2.add(leg2);
-        people2.add(arm1);
-        people2.add(arm2);
+        people2.add(head2);
+        people2.add(neck2);
+        people2.add(body2);
+        people2.add(leg3);
+        people2.add(leg4);
+        people2.add(arm3);
+        people2.add(arm4);
 
         //車
         var cargeometry=new THREE.CylinderGeometry(0.6, 0.6, 0.4, 4);
@@ -356,7 +356,7 @@
               geometry8.dispose();
               geometry9.dispose();
 
-              //道路、時計塔、建物を動かし、車が動いているようにする
+              //clockグループを動かし、車が動いているようにする
               clock.position.z+=0.03;
 
               //車が一番右の建物の前に到着したら
@@ -368,9 +368,15 @@
                 scene.add(people2);
 
                 //人が建物に入ったら
-                if(people2.position.x<-3.9){
+                if(people2.position.x<-3.5){
                   //アニメーション終了
-                  people2.position.x=-3.9;
+                  scene.remove(people2);
+                  material2.dispose();
+                  geometry5.dispose();
+                  geometry6.dispose();
+                  geometry7.dispose();
+                  geometry8.dispose();
+                  geometry9.dispose();
                 }
               }
             }
