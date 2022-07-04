@@ -86,13 +86,13 @@
         mat4.map=texture4;
 
 
-        //平面の作成
+        //地面の作成
         var geometry=new THREE.PlaneGeometry(60, 60, 60);
         var plane=new THREE.Mesh(geometry, mat3);
         plane.position.set(0, -0.75, 0);
-        plane.rotation.set(0, -Math.PI/2, 0);
+        plane.rotation.set(-Math.PI/2, 0, 0);
         plane.receiveShadow=true;
-        scene.add(plane);
+        
 
         //建物
         var building_g=new THREE.CylinderGeometry(5, 5, 5, 4);
