@@ -51,13 +51,13 @@
         
         // 平行光源1
         var directionalLight1 = new THREE.DirectionalLight(0xf69896);
-        directionalLight1.position.set(-4, 5.5, -5);
+        directionalLight1.position.set(3, 5.5, -5);
         // シーンに追加
         scene.add(directionalLight1);
 
         //太陽光(オレンジ)
         var directionalLight=new THREE.DirectionalLight(0xff7f50);
-        directionalLight.position.set(-2, 5.5, -15);
+        directionalLight.position.set(0, 5.5, -15);
         directionalLight.castShadow=true;
         scene.add(directionalLight);
 
