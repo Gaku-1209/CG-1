@@ -28,17 +28,9 @@
 
         // シーンを作成
         const scene = new THREE.Scene();
-        {
-          /*const color=0xffffff;
-          const near=3;
-          const far=50;
-          const color2=0xec5d0f;
-          scene.fog=new THREE.Fog(color, near, far);
-          scene.background=new THREE.Color(color2);*/
-        }
 
         const loader=new THREE.TextureLoader();
-        const bgTexture=loader.load("background.png");
+        const bgTexture=loader.load("img/background.png");
         scene.background=bgTexture;
 
         // カメラを作成
@@ -63,19 +55,19 @@
 
         //時計塔のテクスチャ
         var textureLoader = new THREE.TextureLoader();  
-        var texture = textureLoader.load("stone.png");
+        var texture = textureLoader.load("img/stone.png");
         var mat = new THREE.MeshPhongMaterial();
         mat.map = texture;
 
         //時計のテクスチャ
         var textureLoader2 = new THREE.TextureLoader();  
-        var texture2 = textureLoader2.load("clock.png");
+        var texture2 = textureLoader2.load("img/clock.png");
         var mat2 = new THREE.MeshPhongMaterial();
         mat2.map = texture2;
 
         //道路のテクスチャ
         var textureLoader3 = new THREE.TextureLoader();  
-        var texture3 = textureLoader3.load("road2.png");
+        var texture3 = textureLoader3.load("img/road2.png");
         var mat3 = new THREE.MeshPhongMaterial();
         mat3.map = texture3;
 
